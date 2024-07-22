@@ -22,6 +22,9 @@ class AuthController extends Controller
                 'email' => $data['email'] ,
                 'password' => Hash::make($data['password']),
             ]) ; 
+            $chariot=Chariot::create([
+                'id_cli' => $request->user()->id
+                ]) ; 
             return response()->json(['message' => 'user created succesfully ']) ; 
         }
         else{
@@ -37,16 +40,11 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|string|min:8'
             ]);
-           
-            if (Auth::attempt($data)){
-                 // creer un chariot pour cette utilisateur 
-                $chariot=Chariot::create([
-                'id_cli' => $request->user()->id
-                ]) ; 
+        if (Auth::attempt($data)){
                 $token = $request->user()->createToken('UserToken')->plainTextToken;
                 return response()->json(['message' => 'User : ' , $data ,$token]) ; 
             }
-            else{
+        else{
                 return response()->json(['message' => 'email ou mot de passe invalide ']) ;
             }
             
