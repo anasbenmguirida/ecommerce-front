@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chariot;
 use Illuminate\Http\Request;
 use App\Models\User ;
 use Illuminate\Support\Facades\Hash;
@@ -21,13 +22,7 @@ class AuthController extends Controller
                 'email' => $data['email'] ,
                 'password' => Hash::make($data['password']),
             ]) ; 
-            if($User){
-               
-                return response()->json(['message' => 'user created succesfully ']) ; 
-            }
-            else{
-                return response()->json(['message' => 'user not created ']) ;
-            }
+            return response()->json(['message' => 'user created succesfully ']) ; 
         }
         else{
             return response()->json(['message' => 'un erreur est survenu !  ']) ;
@@ -42,10 +37,14 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|string|min:8'
             ]);
+           
             if (Auth::attempt($data)){
+                 // creer un chariot pour cette utilisateur 
+                $chariot=Chariot::create([
+                'id_cli' => $request->user()->id
+                ]) ; 
                 $token = $request->user()->createToken('UserToken')->plainTextToken;
-                return response()->json(['message' => 'logged in avec succes' , $token]) ; 
-
+                return response()->json(['message' => 'User : ' , $data ,$token]) ; 
             }
             else{
                 return response()->json(['message' => 'email ou mot de passe invalide ']) ;
