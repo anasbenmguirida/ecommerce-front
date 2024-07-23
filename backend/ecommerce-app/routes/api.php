@@ -29,7 +29,7 @@ Route::delete('/supprimer-produit/{id}', [AdminController::class, 'Deleteproduit
 
 
 // route authentifie pour les clients 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum ')->group(function () {
 Route::get('/add-to-chart/{id}' , [ClientController::class , 'addToChart']) ;
 Route::get('/afficher-chariot' , [ClientController::class , 'showProductChariot']) ; 
 Route::delete('/supprimer-produit-chariot/{id}', [ClientController::class, 'Supprimerproduit']);
