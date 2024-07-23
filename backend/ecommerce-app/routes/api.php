@@ -35,6 +35,6 @@ Route::get('/afficher-chariot' , [ClientController::class , 'showProductChariot'
 Route::delete('/supprimer-produit-chariot/{id}', [ClientController::class, 'Supprimerproduit']);
 Route::post('/logout' , [AuthController::class , 'logout']) ; 
 Route::get('/user-profile' , [AuthController::class , 'user_profile']) ; 
-
+Route::post('/commander'  , [ClientController::class , 'Commander']);
 
 });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Productschariot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Commandedetail ; 
 
 class ClientController extends Controller
 {
@@ -44,5 +45,31 @@ class ClientController extends Controller
 
         }
 
+    }
+    public function Commander(Request $request){
+        // commandedetails => id_user , id_prod , qte 
+        $id_user=auth()->user()->id ; 
+        $results = DB::table('produits')
+       ->join('productschariots', 'produits.id', '=', 'productschariots.id_produit')
+       ->select('produits.*')
+       ->get();
+        foreach($results as $produit){
+            $commandedetails=Commandedetail::create([
+            'id_user'=>$id_user , 
+            'id_prod'=>$produit->id,
+            'qte'=>1 // hadi par defaut
+            ]);
+        }
+       $produitscommande = DB::table('produits')
+       ->join('commandedetails', 'produits.id', '=', 'commandedetails.id_prod')
+       ->select('produits.*' , 'commandedetails.qte')
+       ->distinct()
+       ->get();
+       $total=0 ;
+       foreach($produitscommande as $produit){
+        $total=$total+($produit->prix*$produit->qte) ;  
+       }
+       return response()->json(['succes' => 'details de la commande : ' 
+       ,$produitscommande , 'total' => $total]) ;
     }
 }
