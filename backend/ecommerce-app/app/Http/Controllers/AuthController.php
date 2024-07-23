@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User ;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth ; 
+use Laravel\Sanctum\Sanctum ; 
 
 class AuthController extends Controller
 {
@@ -48,5 +49,20 @@ class AuthController extends Controller
                 return response()->json(['message' => 'email ou mot de passe invalide ']) ;
             }
             
+    }
+
+    public function logout(Request $request){
+       $deconected= $request->user()->currentAccessToken()->delete();
+       if($deconected){
+        return response()->json(['succes' => 'user deconnected succesfully']); 
+       }
+       else{
+        return response()->json(['error' => 'user not deconnected ']);
+       }
+    }
+
+    public function user_profile()
+    {
+        return response()->json(auth()->user());
     }
 }

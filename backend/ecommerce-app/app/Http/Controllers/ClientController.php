@@ -15,7 +15,8 @@ class ClientController extends Controller
     ->get();
      return response()->json(['succes'=>$results]); 
 }
-// KCCh3Obn149USjgThHR6CMLHwqqyCKYdyPUGdxdg3f282b03 for tests
+// token for tests 
+//8g3lcsDIWFvEc5n49O7ovhr6D8OK5PK4M4M5eNRUd5e4889a
     public function addToChart(Request $request){
         // get the user id 
         $user_id = auth()->user()->id;
@@ -30,5 +31,18 @@ class ClientController extends Controller
         ]) ; 
      
     return response()->json(['produit ajoute avec succes' => $produitchariot]); 
+    }
+
+    public function Supprimerproduit($id){
+        $produitchariot=Productschariot::where('id_produit', $id) ; 
+        $deletedfromchart=$produitchariot->delete() ; 
+        if($deletedfromchart){
+            return response()->json(['succes' =>  'product deleted succesfully from chart']) ;
+        }
+        else{
+            return response()->json(['fail' =>  'product not deleted succesfully from chart']) ;
+
+        }
+
     }
 }
