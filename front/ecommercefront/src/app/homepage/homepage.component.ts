@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component ,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+
+
 
 @Component({
   selector: 'homepage',
   standalone: true,
   imports: [],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrl: './homepage.component.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomepageComponent {
   appTitle = 'ChanTan Store';

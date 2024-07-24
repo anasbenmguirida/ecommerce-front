@@ -1,0 +1,24 @@
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-custom ul {
+    list-style-type: none;
+    padding: 0;
+}
+.nav-custom li {
+    display: inline;
+    margin-right: 15px;
+}
+a span{
+    background-color: blue;
+    color: black;
+    font-size: 1rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 100rem;
+}
+header{
+    background-color: black;
+    
+}

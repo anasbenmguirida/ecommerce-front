@@ -50,7 +50,7 @@ class AdminController extends Controller
    //all products
     public function ShowAllproducts(){
         $produits=Produit::all() ;
-        return response()->json(['message'=>'succes', $produits]); 
+        return response()->json($produits); 
         
     }
  
