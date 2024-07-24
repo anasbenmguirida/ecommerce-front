@@ -1,1 +1,15 @@
-<p>produit works!</p>
+
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let product of products">
+            <div class="card" style="width:400px">
+              <img class="card-img-top" src="assets/images/setup.jpg" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title"> {{ product.nom }} </h4>
+                <p class="card-text">{{ product.description }}.</p>
+                <a  href ="/" class="btn btn-primary">See Profile</a>
+              </div>
+            </div>
+           
+          </li>
+        </ul>
+     
