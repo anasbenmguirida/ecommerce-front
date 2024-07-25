@@ -8,14 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
    
-  private apiUrl=environment.apiUrl ; 
+  private Url=environment.apiUrl ; 
   constructor(private http: HttpClient) { }
 
-  getUser(): Observable<any> {
-    const userdata:any={
-      email:"test@gmail.com",
-      password:'12345678'
-    } ; 
-    return this.http.post(`${this.apiUrl}/login`, userdata);
-  }
+  sendFormData(data: any): Observable<any> {
+    return this.http.post(`${this.Url}/login`, data)};
+   
 }
