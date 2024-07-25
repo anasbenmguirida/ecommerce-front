@@ -1,11 +1,11 @@
 import { Component ,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-
+import { RouterLink , RouterOutlet , RouterLinkActive } from '@angular/router';
 
 
 @Component({
   selector: 'homepage',
   standalone: true,
-  imports: [],
+  imports: [RouterLink , RouterOutlet , RouterLinkActive ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

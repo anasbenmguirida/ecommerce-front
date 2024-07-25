@@ -1,15 +1,23 @@
-.navbar-custom {
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    background-color: #fff;
 }
-.nav-custom ul {
-    list-style-type: none;
-    padding: 0;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
-.nav-custom li {
-    display: inline;
-    margin-right: 15px;
+.nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
 }
 a span{
     background-color: blue;
@@ -17,8 +25,4 @@ a span{
     font-size: 1rem;
     padding: 0.1rem 0.45rem;
     border-radius: 100rem;
-}
-header{
-    background-color: black;
-    
 }
