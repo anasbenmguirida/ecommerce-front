@@ -13,7 +13,10 @@
           <p class="card-text">{{ product.description }}</p>
         </div>
         <div class="card-footer">
-          <a class="btn btn-primary btn-sm">Add To Cart</a>
+          <small class="text-muted">Price: {{ product.prix }} Dhs</small>
+          
+          <button type="submit" (click)="addToCart(product)" class="btn btn-warning">Add to cart</button>
+          
       </div>
       </div>
     </div>
