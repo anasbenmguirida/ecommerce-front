@@ -15,13 +15,28 @@
                 <a routerLink="" routerLinkActive="active">HOME</a>
                 <a  routerLink="/produits" routerLinkActive="active">PRODUCTS</a>
                 <a routerLink="/login" routerLinkActive="active">LOGIN</a>
-                <a routerLink="/cart" routerLinkActive="active">CART <span>0</span></a>
+                <a routerLink="/cart" routerLinkActive="active">CART <span id="numberofitems">0</span></a>
             </nav>
             
             
         </header>
         
-        
+        <script>
+             function updateSpanWithLength() {
+    // Retrieve the object from localStorage
+    const storedObject = localStorage.getItem('cartItem');
+
+    // Parse the JSON string back to an object
+    const obj = JSON.parse(storedObject);
+
+    // Calculate the length of the object
+    const length = Object.keys(obj).length;
+
+    // Update the span's content
+    document.getElementById('numberofitems').textContent = length;
+} 
+    updateSpanWithLength();
+        </script>
     
 
 </body>

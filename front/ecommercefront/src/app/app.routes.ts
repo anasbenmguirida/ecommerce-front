@@ -7,6 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { DashbordComponent } from './dashbord/dashbord.component';
 import { Component } from '@angular/core';
 import { CommandeComponent } from './commande/commande.component';
+import { AddComponent } from './add/add.component';
 
 export const routes: Routes = [
     {
@@ -32,6 +33,10 @@ export const routes: Routes = [
     {
     path:'commande' , 
     component:CommandeComponent
+    } , 
+    {
+        path:'add-product' , 
+        component:AddComponent
     }
     
     

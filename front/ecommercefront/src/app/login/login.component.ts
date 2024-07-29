@@ -26,10 +26,21 @@ export class LoginComponent {
     if (this. profileForm.valid) {
       this.loginService.sendFormData(this.profileForm.value).subscribe(response => {
         console.log('Form submitted successfully!', response);
+        if(response === 'failed'){
+          this.router.navigate(['/login']);
+        }
+        else{
+          this.router.navigate(['/dashboard']);
+        }
       });
-      this.router.navigate(['/dashboard']);
+      // check for message from the response
+     
+       
+      
+      
     }
   }
+    
    
    
   

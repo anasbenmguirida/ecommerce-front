@@ -1,0 +1,8 @@
+<form [formGroup]="addproduct" (ngSubmit)="addproduit()" enctype="multipart/form-data">
+    <input type="text" formControlName="nom" placeholder="Enter product name" ><br>
+    <input type="text" formControlName="description" placeholder="Enter product description"><br>
+    <input type="number" formControlName="quantite" placeholder="Enter product quantity"><br>
+    <input type="number" formControlName="prix" placeholder="Enter product price in MAD "><br>
+    <input type="file" id="upload-photo"  accept="image/*"formControlName="image" placeholder="Enter product image" ><br>
+    <button type="submit">Add</button>
+</form>

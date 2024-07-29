@@ -22,6 +22,7 @@ onSubmit() {
     this.registerService.sendFormData(this.signin.value).subscribe(response => {
       console.log('Form submitted successfully!', response);
     });
+    this.router.navigate(['/payment']) ; 
    
   }
 }
