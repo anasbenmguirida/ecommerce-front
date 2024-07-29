@@ -14,15 +14,29 @@ class AdminController extends Controller
         'nom' => 'required|string' , 
         'description' => 'required|string'  , 
         'quantite' => 'required|integer' , 
-        'prix'=>'required|numeric'
+        'prix'=>'required|numeric',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        
       ]);
-      if($produitinfo){
-        $produit=Produit::create([ 
-        'nom' =>$produitinfo['nom'] ,
-        'description' => $produitinfo['description'] , 
-        'quantite' => $produitinfo['quantite'],
-        'prix'=> $produitinfo['prix']
-        ]);  
+          $image=$request->file('image');
+          $imageName = time() . '.' . $image->getClientOriginalExtension();
+          // the image is stored in the public/images directory
+          $image->move(public_path('images'), $imageName);
+           // Get the image path
+          $imagePath = 'images/' . $imageName;
+         
+          if($produitinfo){
+            $produit=Produit::create([ 
+            'nom' =>$produitinfo['nom'] ,
+            'description' => $produitinfo['description'] , 
+            'quantite' => $produitinfo['quantite'],
+            'prix'=> $produitinfo['prix'],
+            'image'=>$imagePath, 
+            
+          ]); 
+
+          
+
         return response()->json(['message'=>'produit ajouter avec succes' , $produit]) ; 
      }
      else{

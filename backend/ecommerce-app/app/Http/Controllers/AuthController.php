@@ -22,10 +22,9 @@ class AuthController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'] ,
                 'password' => Hash::make($data['password']),
+                'role'=>'client'
             ]) ; 
-            $chariot=Chariot::create([
-                'id_cli' => $request->user()->id
-                ]) ; 
+           
             return response()->json(['message' => 'user created succesfully ']) ; 
         }
         else{
@@ -43,10 +42,10 @@ class AuthController extends Controller
             ]);
         if (Auth::attempt($data)){
                 $token = $request->user()->createToken('UserToken')->plainTextToken;
-                return response()->json(['message' => 'User : ' , $data ,$token]) ; 
+                return response()->json('succes') ; 
             }
         else{
-                return response()->json(['message' => 'email ou mot de passe invalide ']) ;
+                return response()->json('failed') ;
             }
             
     }
