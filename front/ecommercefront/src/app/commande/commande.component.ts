@@ -14,6 +14,9 @@ signin=new FormGroup({
   name : new FormControl('') ,
   email : new FormControl('') , 
   password : new FormControl('') ,
+  adress : new FormControl('') , 
+  phone : new FormControl('') , 
+  
 
 }) ; 
 constructor(private registerService: RegisterService , private router: Router) { }
@@ -22,7 +25,7 @@ onSubmit() {
     this.registerService.sendFormData(this.signin.value).subscribe(response => {
       console.log('Form submitted successfully!', response);
     });
-    this.router.navigate(['/payment']) ; 
+    this.router.navigate(['/confirme-commande']) ; 
    
   }
 }

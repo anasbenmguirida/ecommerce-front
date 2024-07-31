@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <h3 class="mb-4">Confirm Your Purchase</h3>
+    
+    <div class="card mb-3" *ngFor="let produit of listedesproduits">
+      <div class="card-body">
+        <h4 class="card-title">{{produit.nom}}</h4>
+        <h5 class="card-subtitle mb-2 text-muted">Description: {{produit.description}}</h5>
+        <h5 class="card-text">Price: {{produit.prix}} MAD</h5>
+      </div>
+    </div>
+    
+    <button class="btn btn-primary btn-lg">Proceed to Payment</button>
+  </div>

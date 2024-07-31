@@ -8,6 +8,8 @@ import { DashbordComponent } from './dashbord/dashbord.component';
 import { Component } from '@angular/core';
 import { CommandeComponent } from './commande/commande.component';
 import { AddComponent } from './add/add.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 export const routes: Routes = [
     {
@@ -37,7 +39,16 @@ export const routes: Routes = [
     {
         path:'add-product' , 
         component:AddComponent
+    },
+    {
+        path:'payment' , 
+        component:PaymentComponent
+    },
+    {
+        path:'confirme-commande' , 
+        component: ConfirmComponent
     }
+
     
     
 ];
