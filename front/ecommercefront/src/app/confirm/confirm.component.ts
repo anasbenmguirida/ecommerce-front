@@ -18,7 +18,7 @@ export class ConfirmComponent {
   ngOnInit(): void {
     this.user.getUserInfo().subscribe(
       data => this.userinfo = data,
-      error => console.error('Error userinfo', error)
+      error => console.error('Error getting userinfo', error)
     );
   }
 
