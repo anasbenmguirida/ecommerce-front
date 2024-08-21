@@ -1,12 +1,12 @@
         .main {
             display: flex;
             height: 80vh;
-            background: linear-gradient(135deg, #0080ff 50%, #ffffff 50%);
+            background: linear-gradient(135deg, #ff9100 50%, #ffffff 50%);
         }
         .content {
             flex: 1;
             padding: 50px;
-            color: #fff;
+            color: #000000;
         }
         h1 {
             font-size: 48px;
@@ -24,7 +24,10 @@
         }
         .btn-primary {
             background-color: #fff;
-            color: #0080ff;
+            color: #ffa218;
+        }
+        .btn-primary:hover{
+            background-color: #000000;
         }
         .btn-secondary {
             background-color: transparent;

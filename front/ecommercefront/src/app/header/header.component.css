@@ -8,8 +8,8 @@ body, html {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color:black;
-    color: white;
+    background-color:rgb(12, 11, 11);
+    color: rgb(245, 105, 11);
 }
 .logo {
     font-size: 24px;
@@ -18,10 +18,10 @@ body, html {
 .nav a {
     margin-left: 20px;
     text-decoration: none;
-    color: white;
+    color: rgb(245, 105, 11);
 }
 a span{
-    background-color: blue;
+    background-color:rgb(245, 105, 11);
     color: black;
     font-size: 1rem;
     padding: 0.1rem 0.45rem;
