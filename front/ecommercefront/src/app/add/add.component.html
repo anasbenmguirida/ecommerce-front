@@ -1,8 +1,47 @@
-<form [formGroup]="addproduct" (ngSubmit)="addproduit()" enctype="multipart/form-data">
-    <input type="text" formControlName="nom" placeholder="Enter product name" ><br>
-    <input type="text" formControlName="description" placeholder="Enter product description"><br>
-    <input type="number" formControlName="quantite" placeholder="Enter product quantity"><br>
-    <input type="number" formControlName="prix" placeholder="Enter product price in MAD "><br>
-    <input type="file" id="upload-photo"  accept="image/*"formControlName="image" placeholder="Enter product image" ><br>
-    <button type="submit">Add</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+</html>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Add Product</h2>
+            <form [formGroup]="addproduct" (ngSubmit)="addproduit()" enctype="multipart/form-data">
+              <div class="mb-3">
+                <input type="text" class="form-control" formControlName="nom" placeholder="Enter product name">
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" formControlName="description" placeholder="Enter product description" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <input type="number" class="form-control" formControlName="quantite" placeholder="Enter product quantity">
+              </div>
+              <div class="mb-3">
+                <div class="input-group">
+                  <span class="input-group-text">MAD</span>
+                  <input type="number" class="form-control" formControlName="prix" placeholder="Enter product price">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="upload-photo" class="form-label">Product Image</label>
+                <input type="file" class="form-control" id="upload-photo" accept="image/*" formControlName="image">
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Add Product</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
