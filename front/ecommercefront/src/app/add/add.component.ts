@@ -18,8 +18,6 @@ addproduct=new FormGroup({
   image : new FormControl('') , 
 }) ; 
 constructor(private productService:ProductService){}
-addproduit(){
-  this.productService.addproduct(this.addproduct.value).subscribe(response => {
-    console.log('Product added', response) }); 
-}
+
+
 }
