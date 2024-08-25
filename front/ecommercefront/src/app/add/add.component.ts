@@ -13,11 +13,16 @@ export class AddComponent {
 addproduct=new FormGroup({
   nom : new FormControl('') , 
   description : new FormControl('') , 
-  quantite : new FormControl('') , 
-  prix : new FormControl('') , 
-  image : new FormControl('') , 
+  quantity : new FormControl('') , 
+  price : new FormControl('') , 
+  
 }) ; 
 constructor(private productService:ProductService){}
 
-
+addProduct(){
+  this.productService.saveProduct(this.addproduct.value).subscribe(
+    data => console.log('Product added successfully:', data),
+    error => console.error('Error adding product:', error)
+  )
+}
 }

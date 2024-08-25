@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
-import { RegisterService } from '../register.service';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-commande',
@@ -19,15 +19,9 @@ signin=new FormGroup({
   
 
 }) ; 
-constructor(private registerService: RegisterService , private router: Router) { }
+constructor(private router: Router) { }
 onSubmit() {
-  if (this. signin.valid) {
-    this.registerService.sendFormData(this.signin.value).subscribe(response => {
-      console.log('Form submitted successfully!', response);
-    });
-    this.router.navigate(['/confirme-commande']) ; 
-   
-  }
+  
 }
 
 }
