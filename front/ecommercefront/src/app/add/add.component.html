@@ -18,7 +18,7 @@
             <h2 class="card-title text-center mb-4">Add Product</h2>
             <form [formGroup]="addproduct"  (ngSubmit)="addProduct()"  enctype="multipart/form-data">
               <div class="mb-3">
-                <input type="text" class="form-control" formControlName="nom" placeholder="Enter product name">
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter product name">
               </div>
               <div class="mb-3">
                 <textarea class="form-control" formControlName="description" placeholder="Enter product description" rows="3"></textarea>

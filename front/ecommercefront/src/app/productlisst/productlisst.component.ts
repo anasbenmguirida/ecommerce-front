@@ -1,18 +1,22 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
-
+import { NgFor } from '@angular/common';
+import { RouterLink , RouterLinkActive , RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-productlisst',
   standalone: true,
-  imports: [],
+  imports: [NgFor,RouterLink , RouterLinkActive , RouterOutlet],
   templateUrl: './productlisst.component.html',
   styleUrl: './productlisst.component.css'
 })
 export class ProductlisstComponent {
-  private products:any ; 
+   products:any[]=[] ; 
 // use the same service to get the prosucts from the database 
 constructor(private productlisst:ProductService) {} 
-getProducts(){
-  this.products = this.productlisst.getProducts() ; 
+ngOnInit(): void {
+  this.productlisst.getProducts().subscribe(
+    data => this.products = data,
+    error => console.error('Error fetching products', error)
+  );
 }
 }

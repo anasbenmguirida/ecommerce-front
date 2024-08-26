@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
 })
 export class AddComponent {
 addproduct=new FormGroup({
-  nom : new FormControl('') , 
+  name : new FormControl('') , 
   description : new FormControl('') , 
   quantity : new FormControl('') , 
   price : new FormControl('') , 
@@ -19,7 +19,7 @@ addproduct=new FormGroup({
 }) ; 
 constructor(private productService:ProductService){}
 
-addProduct(){
+addProduct(){ 
   this.productService.saveProduct(this.addproduct.value).subscribe(
     data => console.log('Product added successfully:', data),
     error => console.error('Error adding product:', error)

@@ -1,1 +1,27 @@
-<p>productlisst works!</p>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Edit/Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price}} MAD</td>
+        <td>{{product.quantity}}</td>
+        <td>
+          <button class="btn btn-dark btn-sm me-2">Edit</button>
+          <button class="btn btn-warning btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <button class="btn btn-success mt-3">
+    <a routerLink="/add-product" class="text-white text-decoration-none">Add Products</a>
+  </button>
