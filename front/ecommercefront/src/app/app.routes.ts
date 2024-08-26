@@ -26,7 +26,7 @@ export const routes: Routes = [
         component:DashbordComponent
     },
     {
-        path:'login' , 
+        path:'log-in' , 
         component:LoginComponent
     },
     {
