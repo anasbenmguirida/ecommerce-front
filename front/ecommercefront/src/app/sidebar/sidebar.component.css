@@ -1,0 +1,30 @@
+.sidebar {
+    margin-top: 75px;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 250px;
+}
+
+.sidebar h2 {
+    color: #ffa500; /* Orange color for the header */
+}
+
+.sidebar .nav-link {
+    color: #ffffff; /* White text for links */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.sidebar .nav-link.active {
+    background-color: #ffa500; /* Orange background for active links */
+    color: #000000; /* Black text for active links */
+}
+
+.sidebar .nav-link:hover {
+    background-color: #ffa500; /* Orange background on hover */
+    color: #000000; /* Black text on hover */
+}

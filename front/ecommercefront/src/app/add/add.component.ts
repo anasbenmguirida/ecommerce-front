@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule , FormControl , FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule , SidebarComponent],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })

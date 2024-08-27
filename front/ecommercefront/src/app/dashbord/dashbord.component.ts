@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink , RouterLinkActive , RouterModule } from '@angular/router';
-
+import { RouterLink ,  RouterOutlet , RouterLinkActive , RouterModule } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 @Component({
   selector: 'app-dashbord',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule ,RouterOutlet, SidebarComponent],
   templateUrl: './dashbord.component.html',
   styleUrl: './dashbord.component.css'
 })

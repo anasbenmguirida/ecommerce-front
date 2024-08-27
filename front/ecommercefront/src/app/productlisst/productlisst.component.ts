@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
 import { NgFor } from '@angular/common';
 import { RouterLink , RouterLinkActive , RouterOutlet } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 @Component({
   selector: 'app-productlisst',
   standalone: true,
-  imports: [NgFor,RouterLink , RouterLinkActive , RouterOutlet],
+  imports: [NgFor,RouterLink , RouterLinkActive , RouterOutlet , SidebarComponent],
   templateUrl: './productlisst.component.html',
   styleUrl: './productlisst.component.css'
 })
