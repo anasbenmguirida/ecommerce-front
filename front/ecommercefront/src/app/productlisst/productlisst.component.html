@@ -23,7 +23,7 @@
             <td>{{product.quantity}}</td>
             <td>
               <button class="btn btn-dark btn-sm me-2">Edit</button>
-              <button class="btn btn-warning btn-sm">Delete</button>
+              <button class="btn btn-warning btn-sm" (click)="DeleteProduct(product.id)">Delete</button>
             </td>
           </tr>
         </tbody>

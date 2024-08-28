@@ -18,10 +18,12 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/products`);
   }
   saveProduct(data:any):Observable<any>{
-    return this.http.post(`${this.apiUrl}/save-product`,data);
+    return this.http.post(`${this.apiUrl}/save-product`,data , {responseType: 'text'}) ;
 
   }
- 
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete-product/${id}` , {responseType: 'text'});
+  }
    
   
 }
