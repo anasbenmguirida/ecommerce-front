@@ -3,7 +3,7 @@ import { ProductService } from '../product.service';
 import { NgFor } from '@angular/common';
 import { RouterLink ,Router, RouterLinkActive , RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-productlisst',
   standalone: true,
@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 export class ProductlisstComponent {
    products:any[]=[] ; 
 // use the same service to get the prosucts from the database 
-constructor(private productlisst:ProductService , private router:Router , private location:Location) {} 
+constructor(private productlisst:ProductService  , private router:Router) {} 
 ngOnInit(): void {
   this.productlisst.getProducts().subscribe(
     data => this.products = data,
@@ -30,7 +30,10 @@ DeleteProduct(id: number) {
     error => console.error("Error", error)
   );
 }
-
+EditProduct(product:object){
+  console.log(product);
+  this.router.navigate(['/edit-product' , {product : JSON.stringify(product)}]) ; 
+}
   
 }
 

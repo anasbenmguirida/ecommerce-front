@@ -11,6 +11,7 @@ import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ProductlisstComponent } from './productlisst/productlisst.component'; 
+import { EditComponent } from './edit/edit.component';
 
 export const routes: Routes = [
     {
@@ -52,8 +53,12 @@ export const routes: Routes = [
     {
         path:'product-list' , 
         component:ProductlisstComponent
+    },
+    {
+        path:'edit-product',
+        component:EditComponent
     }
-
+    
     
     
 ];

@@ -1,0 +1,7 @@
+<form (ngSubmit)="EditProduct(product)" >
+    <input type="text" [value]="product.name" ><br>
+    <input type="text" [value]="product.description" ><br>
+    <input type="number" [value]="product.price"><br>
+    <input type="number" [value]="product.quantity"><br>
+    <button type="submit">Edit</button>
+</form>
