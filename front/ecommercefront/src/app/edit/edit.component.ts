@@ -12,7 +12,13 @@ import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
- 
+ editForm =new FormGroup({
+  id:new FormControl(),
+  name:new FormControl(''),
+  description : new FormControl(''),
+  quantity : new FormControl(''),
+  price:new FormControl('')
+ }) ; 
  
   constructor(private route: ActivatedRoute , private productService:ProductService) {}
   product:any ; 
@@ -23,8 +29,11 @@ export class EditComponent {
       this.product=receivedObject ; 
     });
   }
-  EditProduct(product:any){
-  this.productService.EditProduct(product).subscribe(
+  EditProduct(id:number){
+    this.editForm.value.id=id  ; 
+    console.log(this.editForm.value)
+    
+  this.productService.EditProduct(this.editForm.value).subscribe(
   (response) => {
     console.log(response);
     },

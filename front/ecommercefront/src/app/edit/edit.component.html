@@ -1,7 +1,15 @@
-<form (ngSubmit)="EditProduct(product)" >
-    <input type="text" [value]="product.name" ><br>
-    <input type="text" [value]="product.description" ><br>
-    <input type="number" [value]="product.price"><br>
-    <input type="number" [value]="product.quantity"><br>
-    <button type="submit">Edit</button>
-</form>
+<form [formGroup]="editForm" (ngSubmit)="EditProduct(product.id)" class="container mt-4">
+    <div class="mb-3">
+      <input type="text" class="form-control" [placeholder]="'Enter product name (current: ' + product.name + ')'" formControlName="name">
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" [placeholder]="'Enter product description (current: ' + product.description + ')'" formControlName="description">
+    </div>
+    <div class="mb-3">
+      <input type="number" class="form-control" [placeholder]="'Enter product price (current: ' + product.price + ' MAD)'" formControlName="price">
+    </div>
+    <div class="mb-3">
+      <input type="number" class="form-control" [placeholder]="'Enter product quantity (current: ' + product.quantity + ')'" formControlName="quantity">
+    </div>
+    <button type="submit" class="btn btn-primary">Update Product</button>
+  </form>
