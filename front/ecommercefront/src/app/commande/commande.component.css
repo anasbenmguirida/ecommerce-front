@@ -1,0 +1,22 @@
+body{
+ background-color: white
+
+
+}
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #343a40;
+}
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.btn btn-primary w-100{
+    background-color: #343a40;
+    color: rgb(255, 138, 29);
+}

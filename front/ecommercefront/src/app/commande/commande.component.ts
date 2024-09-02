@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { userServive } from '../../../user.service';
 @Component({
   selector: 'app-commande',
   standalone: true,
@@ -19,8 +20,15 @@ signin=new FormGroup({
   
 
 }) ; 
-constructor(private router: Router) { }
+constructor(private router: Router, private userService:userServive) { }
 onSubmit() {
+  this.userService.saveUser(this.signin.value).subscribe(
+    data=>console.log("user added succesfully"),
+    error=>console.error("error" , error) 
+  ) ; 
+  if(this.signin.valid){
+  this.router.navigate(['/payment'])
+  }
   
 }
 
