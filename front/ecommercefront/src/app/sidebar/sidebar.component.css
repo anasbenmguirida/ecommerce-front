@@ -1,7 +1,7 @@
 .sidebar {
     margin-top: 75px;
-    background-color: #000000; /* Black background */
-    color: #ffffff; /* White text */
+    background-color: #000000; 
+    color: #ffffff; 
     height: 100vh;
   position: fixed;
   top: 0;
@@ -11,20 +11,20 @@
 }
 
 .sidebar h2 {
-    color: #ffa500; /* Orange color for the header */
+    color: #ffa500;
 }
 
 .sidebar .nav-link {
-    color: #ffffff; /* White text for links */
+    color: #ffffff; 
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .sidebar .nav-link.active {
-    background-color: #ffa500; /* Orange background for active links */
-    color: #000000; /* Black text for active links */
+    background-color: #ffa500; 
+    color: #000000; 
 }
 
 .sidebar .nav-link:hover {
-    background-color: #ffa500; /* Orange background on hover */
-    color: #000000; /* Black text on hover */
+    background-color: #ffa500; 
+    color: #000000;
 }
