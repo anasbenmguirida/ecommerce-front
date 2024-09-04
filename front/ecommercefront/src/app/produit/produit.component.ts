@@ -1,14 +1,16 @@
 import { Component, OnInit  } from '@angular/core';
 import { ProductService } from '../product.service';
-import { NgModule } from '@angular/core';
+
 import { NgFor } from '@angular/common';
 import { CartService } from '../cart.service';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-produit',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, 
+    BrowserAnimationsModule, SimpleNotificationsModule],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css'
 })
