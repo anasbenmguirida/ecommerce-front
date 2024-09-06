@@ -1,7 +1,7 @@
 <div class="container-fluid bg-light py-4">
   <form class="form-inline justify-content-center mb-4">
-    <input class="form-control mr-sm-2 w-50" type="text" placeholder="Search for products...">
-    <button class="btn btn-primary" type="submit">
+    <input class="form-control mr-sm-2 w-50" type="text" placeholder="Search for products..." #filter (input)="filterResults(filter.value)">
+    <button class="btn btn-primary" (click)="filterResults(filter.value)"type="button">
       <i class="fas fa-search"></i> Search
     </button>
   </form>
@@ -30,7 +30,7 @@
 </div>
 <style>
   .card.h-100.shadow-sm.border-0.transition-hover {
-  transition: 0.7s ease;
+  transition: 0.9s ease;
 }
 
 .card.h-100.shadow-sm.border-0.transition-hover:hover {
