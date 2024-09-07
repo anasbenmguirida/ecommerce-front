@@ -60,7 +60,7 @@ export const routes: Routes = [
         component:EditComponent
     },
     {
-        path:'login-user',
+        path:'login-users',
         component:LoginuserComponent
     }
     

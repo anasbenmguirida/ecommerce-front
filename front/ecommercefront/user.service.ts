@@ -13,5 +13,11 @@ export class userServive{
     saveUser(data:any): Observable<any>{
         return this.http.post(`${this.apiUrl}/register` , data ,{responseType: 'text'} )
     }
+    loginUser(data:any):Observable<any>{
+      return this.http.post(`${this.apiUrl}/login` , data ,{responseType: 'text'})
+    }
+    loginUserAdmin(data:any):Observable<any>{
+      return this.http.post(`${this.apiUrl}/login-users` , data ,{responseType: 'text'})
+    }
     
 }
