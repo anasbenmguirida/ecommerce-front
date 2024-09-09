@@ -14,6 +14,7 @@ export class ConfirmComponent {
   constructor(private cartservice:CartService  ) { }
   private userinfo:any=[] ; 
   listedesproduits:any []=this.cartservice.getItems() ; 
+  price:number = this.cartservice.getTotalPrice() ; 
   
     
 

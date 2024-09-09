@@ -12,7 +12,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { ProductlisstComponent } from './productlisst/productlisst.component'; 
 import { EditComponent } from './edit/edit.component';
-import { LoginuserComponent } from './loginuser/loginuser.component';
+
 
 export const routes: Routes = [
     {
@@ -59,10 +59,7 @@ export const routes: Routes = [
         path:'edit-product',
         component:EditComponent
     },
-    {
-        path:'login-users',
-        component:LoginuserComponent
-    }
+    
     
     
     

@@ -15,8 +15,10 @@ export class ProduitComponent implements OnInit{
 
   products: any[] = [];
   FiltredProductList :any[]=[]; 
+  numberOfProducts:number =0; 
 
-  constructor(private productService: ProductService , private cartservice:CartService) { 
+  constructor(private productService: ProductService , 
+    private cartservice:CartService) { 
     this.FiltredProductList = this.products
   }
 
@@ -25,11 +27,15 @@ export class ProduitComponent implements OnInit{
       data => this.products = data,
       error => console.error('Error fetching products', error)
     );
+    this.cartservice.itemsSubject.subscribe((items: any[]) => {
+      this.numberOfProducts = items.length;
+    });
     
    
   }
   addToCart(product:any){
     this.cartservice.addToCart(product) ;
+   
     console.log(product) ; 
   }
   filterResults(text: string) {

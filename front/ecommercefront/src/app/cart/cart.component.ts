@@ -12,10 +12,16 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrl: './cart.component.css'
 })
 export class CartComponent {
+  numberOfProducts:number=0 ; 
   constructor(public cartservice:CartService , private router:Router){}
-
+  ngOnInit(): void {
+    this.cartservice.itemsSubject.subscribe((items: any[]) => {
+      this.numberOfProducts = items.length;
+    });
+  }
 deleteitem(item:any){
   this.cartservice.deleteitem(item);
+ 
 }
 incrementquantity(id:number){
   this.cartservice.incrementquantity(id);

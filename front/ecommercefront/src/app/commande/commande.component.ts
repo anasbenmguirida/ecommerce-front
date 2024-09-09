@@ -14,7 +14,7 @@ export class CommandeComponent {
 signin=new FormGroup({
   name : new FormControl('') ,
   email : new FormControl('') , 
-  password : new FormControl('') ,
+  city : new FormControl('') ,
   adress : new FormControl('') , 
   phone : new FormControl('') , 
   
