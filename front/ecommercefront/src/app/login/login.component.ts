@@ -12,7 +12,6 @@ import { userServive } from '../../../user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  public tokens:any[] = JSON.parse(localStorage.getItem("token") || '[]' ); 
   users: any[] = [];
    
   profileForm = new FormGroup({  
@@ -24,18 +23,22 @@ export class LoginComponent {
 
   constructor(private userService:userServive ,  private router: Router) { }
   onSubmit() {
-        if (this. profileForm.valid ) {
-          this.userService.loginUser(this.profileForm.value).subscribe(
-          data=>console.log('response from the backend  : ' , data) , 
-          error=>console.error(error) , 
-         
-        ); 
-          // store the token to the localstorage 
-         
-          localStorage.setItem('token' , JSON.stringify(this.tokens));
+    if (this.profileForm.valid) {
+      this.userService.loginUser(this.profileForm.value).subscribe(
+        (data: any) => {
+          // Assuming the token is returned in 'data.accessToken'
+          const token = data.accessToken;
+          localStorage.setItem('token', token); 
+          console.log('JWT Token stored:', token);
           this.router.navigate(['/dashboard']);
-        };
+        },
+        error => {
+          console.error('Error during login:', error);
+        }
+      );
+    }
   }
+  
 }
     
    

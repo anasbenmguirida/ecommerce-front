@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class ProductService {
-
+   
   
   private apiUrl=environment.apiUrl ; 
   constructor(private http: HttpClient )  { }
@@ -18,17 +18,20 @@ export class ProductService {
     return this.http.get(`${this.apiUrl}/products`);
   }
   saveProduct(data:any ):Observable<any>{
-    const headers = new HttpHeaders({
-      'Content-Type': 'multipart/form-data'
-    });
-    return this.http.post(`${this.apiUrl}/save-product`,data , { headers }) ;
+    
+    return this.http.post(`${this.apiUrl}/save-product`,data ) ;
 
   }
   deleteProduct(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/delete-product/${id}` , {responseType: 'text'});
+ const token = localStorage.getItem('token'); 
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  })
+    return this.http.delete(`${this.apiUrl}/delete-product/${id}`, {headers} );
   }
   EditProduct(product:any):Observable<any>{
-    return this.http.post(`${this.apiUrl}/edit-product`,product,{responseType:'text'});
+    
+    return this.http.post(`${this.apiUrl}/edit-product`,product);
   }
    
   
