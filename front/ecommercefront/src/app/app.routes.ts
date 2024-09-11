@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 import { CommandeComponent } from './commande/commande.component';
 import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
-import { ConfirmComponent } from './confirm/confirm.component';
 import { ProductlisstComponent } from './productlisst/productlisst.component'; 
 import { EditComponent } from './edit/edit.component';
 
@@ -28,7 +27,7 @@ export const routes: Routes = [
         component:DashbordComponent
     },
     {
-        path:'log-in' , 
+        path:'login' , 
         component:LoginComponent
     },
     {
@@ -47,10 +46,7 @@ export const routes: Routes = [
         path:'payment' , 
         component:PaymentComponent
     },
-    {
-        path:'confirme-commande' , 
-        component: ConfirmComponent
-    },
+    
     {
         path:'product-list' , 
         component:ProductlisstComponent
