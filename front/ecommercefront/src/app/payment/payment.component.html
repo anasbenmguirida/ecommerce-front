@@ -15,7 +15,8 @@
                         <h1 class="card-title text-center mb-4">Thank You for Your Trust</h1>
                         <h4 class="text-center mb-4">A member of our team will reach out to you soon</h4>
                        <h4>Your info : </h4>
-                      
+                      <h5>Name : {{userInfo.name}}</h5>
+                      <h5>Email : {{userInfo.email}}</h5>
                         <h4 class="mb-3">Order Details:</h4>
                         <div *ngFor="let produit of produits" class="mb-3">
                             <h5>{{produit.name}}</h5>

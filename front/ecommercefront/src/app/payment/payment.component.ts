@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CartService } from '../cart.service';
 import { NgFor } from '@angular/common';
 import { RouterModule , RouterLink , RouterLinkActive, Router, ActivatedRoute } from '@angular/router';
+import { userServive } from '../../../user.service';
 
 @Component({
   selector: 'app-payment',
@@ -13,10 +14,21 @@ import { RouterModule , RouterLink , RouterLinkActive, Router, ActivatedRoute } 
 export class PaymentComponent {
 produits:any[]=[] ; 
 price:number=0 ; 
-constructor(private cartService:CartService , private route:ActivatedRoute){}
+user:any ; 
+userInfo:any ; 
+constructor(private cartService:CartService, private userService:userServive, private route:ActivatedRoute){}
 ngOnInit(): void {
+  this.route.params.subscribe(params => {
+    this.userInfo = JSON.parse(params['userInfo']);
+     
+  });
   this.produits=this.cartService.getItems() ; 
   this.price=this.cartService.getTotalPrice() ; 
+  this.userService.sendEmail(this.userInfo.email).subscribe(
+    data=>console.log("email sent succesfully"),
+    error =>console.error(error)
+    
+  )
+  ; 
 }
 }
-

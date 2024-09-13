@@ -17,6 +17,12 @@ export class userServive{
     loginUser(data:any):Observable<any>{
       return this.http.post(`${this.apiUrl}/login` , data)
     }
+    /*getUser():Observable<any>{
+      return this.http.get(`${this.apiUrl}/user-info` ) ; 
+    }*/
+   sendEmail(recipient:String):Observable<any>{
+     return this.http.post(`${this.apiUrl}/send-email`,  recipient);
+   }
     
     
 }
