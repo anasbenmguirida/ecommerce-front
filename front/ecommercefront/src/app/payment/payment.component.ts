@@ -18,17 +18,20 @@ user:any ;
 userInfo:any ; 
 constructor(private cartService:CartService, private userService:userServive, private route:ActivatedRoute){}
 ngOnInit(): void {
+  this.produits=this.cartService.getItems() ; 
+  this.price=this.cartService.getTotalPrice() ; 
+  
   this.route.params.subscribe(params => {
     this.userInfo = JSON.parse(params['userInfo']);
      
   });
-  this.produits=this.cartService.getItems() ; 
-  this.price=this.cartService.getTotalPrice() ; 
+  /*
+  console.log("email : " , this.userInfo.email);
   this.userService.sendEmail(this.userInfo.email).subscribe(
     data=>console.log("email sent succesfully"),
     error =>console.error(error)
     
   )
-  ; 
+  */ 
 }
 }

@@ -27,9 +27,13 @@ onSubmit() {
     {
       let userInfo=this.signin.value  ;
       this.userService.saveUser(this.signin.value).subscribe(
-          data=>console.log("user added succesfully" , data ),
-          error=>console.error("error" , error)) ; 
-      this.router.navigate(['/payment', {userInfo : JSON.stringify(userInfo)}]) ; 
+        (data: any) => {
+          const token = data.accessToken;
+          localStorage.setItem('userToken', token); 
+          console.log('JWT Token stored:', token);
+        },
+        error=>console.log(error) ) ; 
+       this.router.navigate(['/payment', {userInfo : JSON.stringify(userInfo)}]) ; 
     }
   
 }

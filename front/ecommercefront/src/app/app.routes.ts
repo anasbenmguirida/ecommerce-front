@@ -11,6 +11,7 @@ import { AddComponent } from './add/add.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ProductlisstComponent } from './productlisst/productlisst.component'; 
 import { EditComponent } from './edit/edit.component';
+import { CommandelistComponent } from './commandelist/commandelist.component';
 
 
 export const routes: Routes = [
@@ -55,7 +56,10 @@ export const routes: Routes = [
         path:'edit-product',
         component:EditComponent
     },
-    
+    {
+        path:'commandes',
+        component:CommandelistComponent
+    }
     
     
     

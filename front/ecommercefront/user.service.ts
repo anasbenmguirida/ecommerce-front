@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from './src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 
@@ -20,8 +20,13 @@ export class userServive{
     /*getUser():Observable<any>{
       return this.http.get(`${this.apiUrl}/user-info` ) ; 
     }*/
-   sendEmail(recipient:String):Observable<any>{
-     return this.http.post(`${this.apiUrl}/send-email`,  recipient);
+   sendEmail(recipient:any):Observable<any>{
+    const token = localStorage.getItem('token'); 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers};
+     return this.http.post(`${this.apiUrl}/send-email`,  recipient ,{...options , responseType:'text'});
    }
     
     
