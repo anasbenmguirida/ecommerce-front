@@ -16,6 +16,6 @@ export class CommandeService{
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers};
-        return this.http.get(`${this.url}/commandes` ,{...options , responseType:'text'})
+        return this.http.get(`${this.url}/commandes` ,options );
     }
 }

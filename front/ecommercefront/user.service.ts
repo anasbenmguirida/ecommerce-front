@@ -17,9 +17,15 @@ export class userServive{
     loginUser(data:any):Observable<any>{
       return this.http.post(`${this.apiUrl}/login` , data)
     }
-    /*getUser():Observable<any>{
-      return this.http.get(`${this.apiUrl}/user-info` ) ; 
-    }*/
+    getUser():Observable<any>{
+      const token = localStorage.getItem('token'); 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const options = { headers: headers};
+      return this.http.get(`${this.apiUrl}/user-info` , options ) ; 
+    }
+    
    sendEmail(recipient:any):Observable<any>{
     const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders({
