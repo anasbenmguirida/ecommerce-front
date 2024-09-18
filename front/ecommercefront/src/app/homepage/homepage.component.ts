@@ -1,6 +1,6 @@
 import { Component ,  CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { RouterLink , RouterOutlet , RouterLinkActive } from '@angular/router';
-
+import { Swiper } from 'swiper/types';
 
 @Component({
   selector: 'homepage',
@@ -11,9 +11,8 @@ import { RouterLink , RouterOutlet , RouterLinkActive } from '@angular/router';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomepageComponent {
-  appTitle = 'ChanTan Store';
-  subTitle = 'Welcome to your store!';
-  // connecting to the backend and display some of the product
+ 
+
   
 
 }

@@ -22,6 +22,6 @@ ngOnInit():void{
         console.log("error : " , error) 
       }
   )
-  console.dir(this.commandes);
+
 }
 }

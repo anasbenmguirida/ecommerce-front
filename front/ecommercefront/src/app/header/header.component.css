@@ -20,6 +20,9 @@ body, html {
     text-decoration: none;
     color: rgb(245, 105, 11);
 }
+.nav a:hover{
+    background-color: rgb(100, 99, 98);
+}
 a span{
     background-color:rgb(245, 105, 11);
     color: black;

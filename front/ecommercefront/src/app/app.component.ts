@@ -18,6 +18,6 @@ import { ProduitComponent } from "./produit/produit.component";
 
 })
 export class AppComponent {
-  title = 'Moul Tech';
+  title = 'Tech Store';
 }
 
