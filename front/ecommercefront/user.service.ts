@@ -17,13 +17,14 @@ export class userServive{
     loginUser(data:any):Observable<any>{
       return this.http.post(`${this.apiUrl}/login` , data)
     }
-    getUser():Observable<any>{
+    getUser(id:number):Observable<any>{
       const token = localStorage.getItem('token'); 
-    const headers = new HttpHeaders({
+      const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     const options = { headers: headers};
-      return this.http.get(`${this.apiUrl}/user-info` , options ) ; 
+    // the id should be on the url 
+    return this.http.get(`${this.apiUrl}/user-info/${id}`,options)
     }
     
    sendEmail(recipient:any):Observable<any>{

@@ -15,12 +15,7 @@ body {
     flex-direction: column;
     justify-content: center;
   }
-  .image {
-    flex: 1;
-    background-image: url("/public/assets/images/mac.jpg");
-    background-size: cover;
-    background-position: center;
-  }
+  
   h1 {
     font-size: 3.5rem;
     font-weight: 700;
