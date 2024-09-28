@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { NgFor } from '@angular/common';
 import { RouterLink ,Router, RouterLinkActive , RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-productlisst',
@@ -14,7 +15,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 export class ProductlisstComponent {
    products:any[]=[] ; 
 // use the same service to get the prosucts from the database 
-constructor(private productlisst:ProductService  , private router:Router) {} 
+constructor(private toaster : ToastrService ,  private productlisst:ProductService  , private router:Router) {} 
 ngOnInit(): void {
   this.productlisst.getProducts().subscribe(
     data => this.products = data,
@@ -25,6 +26,7 @@ DeleteProduct(id: number) {
   this.productlisst.deleteProduct(id).subscribe(
     success => {
       console.log("product deleted");
+      this.toaster.success("Product is deleted  ! ") ; 
       this.ngOnInit();
     },
     error => console.error("Error", error)

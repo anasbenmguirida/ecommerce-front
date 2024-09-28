@@ -1,9 +1,12 @@
-<div class="sidebar bg-black text-white p-3">
-    <nav class="nav flex-column">
-        <a class="nav-link" routerLink="/commandes" routerLinkActive="active">Orders</a>
-        <a class="nav-link" routerLink="/product-list" routerLinkActive="active">Products</a>
-        <a class="nav-link" routerLink="/add-product" routerLinkActive="active">Add Product</a>
-        <a class="nav-link" routerLink="/" routerLinkActive="active">Logout</a>
-    </nav>
-</div>
+<div class="container">
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a routerLink="/commandes" routerLinkActive="active" class="nav-link">Orders</a></li>
+                <li><a routerLink="/product-list"  routerLinkActive="active" class="nav-link">Products</a></li>
+                <li><a routerLink="/add-product" routerLinkActive="active" class="nav-link">Add Product</a></li>
+                <li><a routerLink="/" class="nav-link" routerLinkActive="active">Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
 <router-outlet></router-outlet>

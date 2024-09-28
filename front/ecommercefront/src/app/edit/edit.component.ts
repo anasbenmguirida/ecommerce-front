@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class EditComponent {
   price:new FormControl('')
  }) ; 
  
-  constructor(private route: ActivatedRoute , private productService:ProductService) {}
+  constructor( private router:Router  , private route: ActivatedRoute , private toaster:ToastrService, private productService:ProductService) {}
   product:any ; 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -40,6 +41,8 @@ export class EditComponent {
 
 
 )
+this.toaster.success("Product edited succesfully ! ") ; 
+this.router.navigate(["/product-list"])  ; 
  
   }
 }
