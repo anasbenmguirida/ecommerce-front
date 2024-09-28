@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 
 import { NgFor } from '@angular/common';
 import { CartService } from '../cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-produit',
@@ -18,7 +19,7 @@ export class ProduitComponent implements OnInit{
   numberOfProducts:number =0; 
 
   constructor(private productService: ProductService , 
-    private cartservice:CartService) { 
+    private cartservice:CartService , private toaster:ToastrService) { 
     this.FiltredProductList = this.products
   }
 
@@ -35,7 +36,8 @@ export class ProduitComponent implements OnInit{
   }
   addToCart(product:any){
     this.cartservice.addToCart(product) ;
-   
+    // i want to add a link to cart in the notification
+   this.toaster.success("Product added succesfully ! " , "Add product") ; 
     console.log(product) ; 
   }
   filterResults(text: string) {

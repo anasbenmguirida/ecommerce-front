@@ -3,6 +3,7 @@ import { ProduitComponent } from '../produit/produit.component';
 import { CartService } from '../cart.service';
 import { JsonPipe } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class CartComponent {
   numberOfProducts:number=0 ; 
-  constructor(public cartservice:CartService , private router:Router){}
+  constructor(public cartservice:CartService , private router:Router , private toaster:ToastrService){}
   ngOnInit(): void {
     this.cartservice.itemsSubject.subscribe((items: any[]) => {
       this.numberOfProducts = items.length;
@@ -21,6 +22,7 @@ export class CartComponent {
   }
 deleteitem(item:any){
   this.cartservice.deleteitem(item);
+  this.toaster.warning("This item id deleted of you cart !")
  
 }
 incrementquantity(id:number){
@@ -32,5 +34,6 @@ decrementquantity(id:number){
 }
 confirm(){
   this.router.navigate(['/commande']) ; 
+  this.toaster.success("One Last Step !")
 }
 }
