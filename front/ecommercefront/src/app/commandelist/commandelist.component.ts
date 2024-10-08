@@ -14,20 +14,11 @@ export class CommandelistComponent {
 constructor(private commandeService:CommandeService ,private userService:userServive){}
 commandes:any; 
 ngOnInit():void{
-  this.commandeService.getCommandes().subscribe(
+  this.userService.PeopleCommande().subscribe(
    (data) => {
       console.log(data);  
       this.commandes=data ; 
-      console.log("les cmmandes : " , this.commandes[0].userID)
-              this.userService.getUser(this.commandes[0].userID).subscribe(
-              (data) => {
-                console.log(data);  
-              },
-                
-              (error)=>{
-                console.log("error : " , error) 
-              }
-            )
+      
       },
       
       (error)=>{
