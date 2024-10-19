@@ -45,8 +45,12 @@
                                 <p class="card-text"><strong>reservation date </strong> {{commande.dateReservation}}</p>
                             </div>
                             <div class="col-md-3 text-end">
-                                <button class="btn btn-custom">Confirm</button>
-                                <button class="btn btn-custom">Confirm</button>
+                                <!--i want to also send the id to another component-->
+                                <button class="btn btn-custom" >View Details
+                                    <i class="fa fa-eye"></i>
+                                    </button>
+                                <button class="btn btn-custom"><a [routerLink]="['/commande-details', commande.userId]">details</a> </button>
+                               
                             </div>
                             
                         </div>

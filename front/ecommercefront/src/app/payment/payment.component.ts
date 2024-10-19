@@ -19,7 +19,7 @@ export class PaymentComponent {
   user:any ; 
   userInfo:any ; 
   CommandeList:any[]=[]
-  private userId:number | undefined; 
+  userId:number | undefined; 
   constructor(private cartService:CartService, private commandeService:CommandeService,private userService:userServive, private route:ActivatedRoute){}
   public setuserId(id:number){
     this.userId=id ; 

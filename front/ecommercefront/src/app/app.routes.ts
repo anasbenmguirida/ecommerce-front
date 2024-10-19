@@ -12,6 +12,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ProductlisstComponent } from './productlisst/productlisst.component'; 
 import { EditComponent } from './edit/edit.component';
 import { CommandelistComponent } from './commandelist/commandelist.component';
+import { CommandeDetailsComponent } from './commande-details/commande-details.component';
 
 
 export const routes: Routes = [
@@ -59,6 +60,11 @@ export const routes: Routes = [
     {
         path:'commandes',
         component:CommandelistComponent
+    },
+    {
+        // it depends on the id 
+        path:'commande-details/:id',
+        component:CommandeDetailsComponent
     }
     
     

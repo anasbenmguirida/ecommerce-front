@@ -22,4 +22,7 @@ export class CommandeService{
     saveCommande(commande:any){
       return this.http.post(`${this.url}/save-details` , commande,{responseType: 'text'} )
     }
+    getCommandeByid(id:number){
+      return this.http.get(`${this.url}/get-commande/${id}`);
+    }
 }
