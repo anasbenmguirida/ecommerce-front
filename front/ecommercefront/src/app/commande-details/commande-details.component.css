@@ -1,0 +1,50 @@
+.receipt-container {
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .company-name {
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .btn {
+    font-weight: 500;
+    min-width: 120px;
+  }
+  
+  .btn-warning {
+    background-color: #ff8800;
+    border-color: #ff8800;
+    color: white;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e67a00;
+    border-color: #e67a00;
+    color: white;
+  }
+  
+  .text-warning {
+    color: #ff8800 !important;
+  }
+  
+  .order-details .row:not(:first-child) {
+    border-bottom: 1px dashed #dee2e6;
+    padding-bottom: 8px;
+  }
+  
+  .total-section {
+    border-color: #dee2e6 !important;
+  }
+  
+  @media print {
+    .btn {
+      display: none;
+    }
+    
+    .receipt-container {
+      box-shadow: none;
+    }
+  }
