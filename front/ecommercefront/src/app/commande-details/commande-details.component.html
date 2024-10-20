@@ -16,7 +16,7 @@
           <p class="fw-bold">20/10/2024</p>
         </div>
         <div class="col-6 text-end">
-          <p class="mb-1 text-muted small">Order #</p>
+          <p class="mb-1 text-muted small">Order #{{listOfCommandes[0].id}}</p>
           <p class="fw-bold">ORD-2024-001</p>
         </div>
       </div>
@@ -71,10 +71,10 @@
   
       <!-- Action Buttons -->
       <div class="d-flex gap-3 justify-content-center mt-4">
-        <button class="btn btn-outline-dark px-4 py-2">
-          <i class="fas fa-print me-2"></i>Print
+        <button (click)="cancelCommande(listOfCommandes[0].id)" class="btn btn-outline-dark px-4 py-2">
+          <i class="fas fa-print me-2"></i>Cancel
         </button>
-        <button class="btn btn-warning px-4 py-2">
+        <button class="btn btn-warning px-4 py-2" (click)="approveCommande(listOfCommandes[0].id)">
           <i class="fas fa-check me-2"></i>Confirm
         </button>
       </div>

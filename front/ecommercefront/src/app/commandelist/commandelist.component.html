@@ -41,15 +41,13 @@
                         <div class="row align-items-center">
                             <div class="col-md-9">
                                 <h5 class="card-title">Order ID: {{commande.id}}</h5>
-                                <p class="card-text mb-1"><strong>userId</strong> {{commande.userId}}</p>
+                                <p class="card-text mb-1"><strong>Order state :</strong> {{commande.state}}</p>
                                 <p class="card-text"><strong>reservation date </strong> {{commande.dateReservation}}</p>
                             </div>
                             <div class="col-md-3 text-end">
                                 <!--i want to also send the id to another component-->
-                                <button class="btn btn-custom" >View Details
-                                    <i class="fa fa-eye"></i>
-                                    </button>
-                                <button class="btn btn-custom"><a [routerLink]="['/commande-details', commande.userId]">details</a> </button>
+                                
+                                <button class="btn btn-custom"><a [routerLink]="['/commande-details', commande.userId]">details</a> <i class="fa fa-eye"></i></button>
                                
                             </div>
                             

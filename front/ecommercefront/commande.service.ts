@@ -25,4 +25,10 @@ export class CommandeService{
     getCommandeByid(id:number){
       return this.http.get(`${this.url}/get-commande/${id}`);
     }
+    approveCommande(id:number){
+      return this.http.post(`${this.url}/change-state-app/${id}`,id,{responseType: 'text'});
+    }
+    cancelCommande(id:number){
+      return this.http.post(`${this.url}/change-state-can/${id}`,id,{responseType: 'text'}) ; 
+    }
 }
