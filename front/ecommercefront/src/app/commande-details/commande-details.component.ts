@@ -5,10 +5,11 @@ import { userServive } from '../../../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { JsonPipe } from '@angular/common';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 @Component({
   selector: 'app-commande-details',
   standalone: true,
-  imports: [NgFor,JsonPipe],
+  imports: [NgFor,JsonPipe,SidebarComponent],
   templateUrl: './commande-details.component.html',
   styleUrl: './commande-details.component.css'
 })
@@ -16,7 +17,8 @@ export class CommandeDetailsComponent {
   constructor(private toaster:ToastrService,private commandeService:CommandeService , private userService:userServive,private route: ActivatedRoute){}
 listOfCommandes:any[]=[];
 userId:any; 
-totalPrice:number=0 ; 
+totalPrice:number=0 
+user:any; 
 
 ngOnInit(){
     this.userId = this.route.snapshot.params['id'] ; 
@@ -31,6 +33,7 @@ ngOnInit(){
 
     this.userService.getUser(this.userId).subscribe(
       (data:any)=>{
+        this.user=data ; 
         console.log("my user : "  , data)
       });
 }

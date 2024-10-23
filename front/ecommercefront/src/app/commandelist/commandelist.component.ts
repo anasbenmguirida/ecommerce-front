@@ -8,7 +8,7 @@ import { RouterLink , RouterLinkActive, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-commandelist',
   standalone: true,
-  imports: [NgFor, SidebarComponent,RouterLink , RouterLinkActive, RouterOutlet],
+  imports: [NgFor, SidebarComponent,RouterLink , RouterLinkActive, RouterOutlet,SidebarComponent],
   templateUrl: './commandelist.component.html',
   styleUrl: './commandelist.component.css'
 })

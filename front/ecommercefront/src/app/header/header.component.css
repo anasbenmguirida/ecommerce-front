@@ -4,6 +4,13 @@ body, html {
     font-family: Arial, sans-serif;
 }
 .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    z-index: 1001; /* Higher than sidebar */
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;

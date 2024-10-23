@@ -1,7 +1,12 @@
+/* Container styles */
 .container {
     display: flex;
+    margin-left: 200px; /* Add margin to prevent content overlap with sidebar */
+    width: calc(100% - 200px); /* Adjust width to account for sidebar */
+    min-height: 100vh;
 }
 
+/* Sidebar styles */
 .sidebar {
     position: fixed;
     top: 75px; /* Adjust to be under the header */
@@ -10,10 +15,14 @@
     height: calc(100vh - 75px); /* Full height minus the header */
     background-color: #000;
     padding: 20px;
+    z-index: 1000; /* Ensure sidebar stays above other content */
+    overflow-y: auto; /* Add scroll if content is too long */
 }
 
 .sidebar nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar nav ul li {
@@ -25,8 +34,40 @@
     text-decoration: none;
     font-size: 1.2rem;
     display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
 .sidebar nav ul li a:hover {
     color: #f39c12;
+}
+
+/* Active link style */
+.sidebar nav ul li a.active {
+    color: #f39c12;
+    border-left: 3px solid #f39c12;
+    padding-left: 7px; /* Compensate for border */
+}
+
+/* Ensure router-outlet content doesn't overlap */
+router-outlet {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
 }
