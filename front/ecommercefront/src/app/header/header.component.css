@@ -4,12 +4,6 @@ body, html {
     font-family: Arial, sans-serif;
 }
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
-    z-index: 1001; /* Higher than sidebar */
     background-color: #fff;
     display: flex;
     justify-content: space-between;
@@ -27,9 +21,7 @@ body, html {
     text-decoration: none;
     color: rgb(245, 105, 11);
 }
-.nav a:hover{
-    background-color: rgb(100, 99, 98);
-}
+
 a span{
     background-color:rgb(245, 105, 11);
     color: black;

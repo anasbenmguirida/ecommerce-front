@@ -3,11 +3,12 @@ import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
 import {  RouterLink ,RouterModule, RouterLinkActive } from '@angular/router';
 import { Router } from '@angular/router';
 import { userServive } from '../../../user.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-commande',
   standalone: true,
-  imports: [ReactiveFormsModule , RouterLink ,RouterModule, RouterLinkActive ],
+  imports: [ReactiveFormsModule ,HeaderComponent, RouterLink ,RouterModule, RouterLinkActive ],
   templateUrl: './commande.component.html',
   styleUrl: './commande.component.css'
 })

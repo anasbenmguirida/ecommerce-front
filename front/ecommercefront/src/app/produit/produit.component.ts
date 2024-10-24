@@ -4,11 +4,12 @@ import { ProductService } from '../product.service';
 import { NgFor } from '@angular/common';
 import { CartService } from '../cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-produit',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor , HeaderComponent],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css'
 })

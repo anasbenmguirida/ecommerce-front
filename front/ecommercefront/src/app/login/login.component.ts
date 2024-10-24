@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { NgFor } from '@angular/common';
 import {ReactiveFormsModule , FormGroup, FormControl} from '@angular/forms';
 import { userServive } from '../../../user.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule],
+  imports: [NgFor, ReactiveFormsModule,HeaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

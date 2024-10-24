@@ -4,12 +4,13 @@ import { NgFor } from '@angular/common';
 import { RouterModule , RouterLink , RouterLinkActive, Router, ActivatedRoute } from '@angular/router';
 import { userServive } from '../../../user.service';
 import { CommandeService } from '../../../commande.service';
+import { HeaderComponent } from '../header/header.component';
 
 
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [NgFor , RouterModule],
+  imports: [NgFor , RouterModule , HeaderComponent],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
