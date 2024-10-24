@@ -4,11 +4,12 @@ import { NgFor } from '@angular/common';
 import { RouterLink ,Router, RouterLinkActive , RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { ToastrService } from 'ngx-toastr';
+import { AdminheaderComponent } from '../adminheader/adminheader.component';
 
 @Component({
   selector: 'app-productlisst',
   standalone: true,
-  imports: [ NgFor,RouterLink , RouterLinkActive , RouterOutlet , SidebarComponent],
+  imports: [ NgFor,RouterLink , AdminheaderComponent , RouterLinkActive , RouterOutlet , SidebarComponent],
   templateUrl: './productlisst.component.html',
   styleUrl: './productlisst.component.css'
 })

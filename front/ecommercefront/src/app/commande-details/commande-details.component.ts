@@ -6,10 +6,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { JsonPipe } from '@angular/common';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { AdminheaderComponent } from '../adminheader/adminheader.component';
 @Component({
   selector: 'app-commande-details',
   standalone: true,
-  imports: [NgFor,JsonPipe,SidebarComponent],
+  imports: [NgFor,JsonPipe,SidebarComponent,AdminheaderComponent],
   templateUrl: './commande-details.component.html',
   styleUrl: './commande-details.component.css'
 })

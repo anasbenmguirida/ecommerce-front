@@ -3,11 +3,12 @@ import { ReactiveFormsModule , FormControl , FormGroup } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { HttpHeaders } from '@angular/common/http';
+import { AdminheaderComponent } from '../adminheader/adminheader.component';
 
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [ReactiveFormsModule , SidebarComponent],
+  imports: [ReactiveFormsModule , AdminheaderComponent],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })

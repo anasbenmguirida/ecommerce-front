@@ -3,12 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { ReactiveFormsModule , FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AdminheaderComponent } from '../adminheader/adminheader.component';
 
 
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [ ReactiveFormsModule  ],
+  imports: [ ReactiveFormsModule,AdminheaderComponent  ],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })

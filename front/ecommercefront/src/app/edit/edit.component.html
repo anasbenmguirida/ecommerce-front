@@ -1,3 +1,4 @@
+<app-adminheader/>
 <form [formGroup]="editForm" (ngSubmit)="EditProduct(product.id)" class="container mt-4">
     <div class="mb-3">
       <input type="text" class="form-control" [placeholder]="'Enter product name (current: ' + product.name + ')'" formControlName="name">

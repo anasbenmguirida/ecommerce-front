@@ -4,11 +4,12 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { NgFor } from '@angular/common';
 import { userServive } from '../../../user.service';
 import { RouterLink , RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AdminheaderComponent } from '../adminheader/adminheader.component';
 
 @Component({
   selector: 'app-commandelist',
   standalone: true,
-  imports: [NgFor, SidebarComponent,RouterLink , RouterLinkActive, RouterOutlet,SidebarComponent],
+  imports: [NgFor, SidebarComponent,RouterLink , RouterLinkActive, RouterOutlet,AdminheaderComponent],
   templateUrl: './commandelist.component.html',
   styleUrl: './commandelist.component.css'
 })
