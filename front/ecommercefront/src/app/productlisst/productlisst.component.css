@@ -1,0 +1,16 @@
+.table{
+    margin-left: 20px;
+}
+.btn-success {
+    margin-left: 20px;
+}
+.text-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+.text-area h2{
+font:bold;
+}

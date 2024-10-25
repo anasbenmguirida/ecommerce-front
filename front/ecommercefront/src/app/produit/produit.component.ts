@@ -6,6 +6,7 @@ import { CartService } from '../cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { HeaderComponent } from '../header/header.component';
 
+
 @Component({
   selector: 'app-produit',
   standalone: true,
@@ -18,6 +19,9 @@ export class ProduitComponent implements OnInit{
   products: any[] = [];
   FiltredProductList :any[]=[]; 
   numberOfProducts:number =0; 
+  image:any ; 
+  retrieveResonse:any ; 
+  base64Data:any ; 
 
   constructor(private productService: ProductService , 
     private cartservice:CartService , private toaster:ToastrService) { 
@@ -25,16 +29,32 @@ export class ProduitComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(
-      data => this.products = data,
-      error => console.error('Error fetching products', error)
-    );
-    this.cartservice.itemsSubject.subscribe((items: any[]) => {
-      this.numberOfProducts = items.length;
-    });
-    
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+    // For each product, fetch the image
+      this.products.forEach(product => {
+        this.productService.getProductImage(product.id).subscribe(blob => {
+          const reader = new FileReader();
+          reader.readAsDataURL(blob); // Convert Blob to Base64
+          reader.onloadend = () => {
+            const base64data = reader.result as string; // This will be the Base64 string
+            product.image = base64data; // Set image URL as Base64
+            console.log(product.image)
+          };
+        });
+        
+    })
+    })
+  
    
   }
+
+    
+   
+  
+ 
+    
+  
   addToCart(product:any){
     this.cartservice.addToCart(product) ;
     // i want to add a link to cart in the notification

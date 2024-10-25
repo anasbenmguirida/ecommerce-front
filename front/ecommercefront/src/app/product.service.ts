@@ -48,6 +48,10 @@ export class ProductService {
     console.log("Options  : " , options) ; 
     return this.http.post(`${this.apiUrl}/edit-product`,product, { ...options, responseType: 'text' });
   }
+
+  getProductImage(id: number) {
+   return  this.http.get(`${this.apiUrl}/image/${id}` , {responseType:'blob'}) ; 
+  }
    
   
 }
