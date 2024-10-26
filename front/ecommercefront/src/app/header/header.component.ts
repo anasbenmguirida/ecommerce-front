@@ -9,8 +9,11 @@ import { CartService } from '../cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  productInChart:number =0 ; 
   constructor(private cartService:CartService){}
- prodInChart=this.cartService.getNumberofproducts() ; 
+  ngOnInit(){
+  this.productInChart=this.cartService.getNumberofproducts() ; 
+  }
  
 
 

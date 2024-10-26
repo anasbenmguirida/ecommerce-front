@@ -31,7 +31,7 @@ export class LoginComponent {
           const token = data.accessToken;
           localStorage.setItem('token', token); 
           console.log('JWT Token stored:', token);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/product-list']);
         },
         error => {
           console.error('Error during login:', error);

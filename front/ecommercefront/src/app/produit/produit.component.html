@@ -2,39 +2,123 @@
 <div class="container-fluid bg-light py-4">
   <form class="form-inline justify-content-center mb-4">
     <input class="form-control mr-sm-2 w-50" type="text" placeholder="Search for products..." #filter (input)="filterResults(filter.value)">
-    <button class="btn btn-primary" (click)="filterResults(filter.value)"type="button">
+    <button class="btn btn-orange" (click)="filterResults(filter.value)" type="button">
       <i class="fas fa-search"></i> Search
     </button>
   </form>
-
   <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
     <div class="col" *ngFor="let product of products">
-      <div class="card h-100 shadow-sm border-0 transition-hover">
+     
+      <div class="card h-100 shadow-sm border-0 product-card">
         <div class="position-relative">
           <img class="card-img-top" [src]="product.image" alt="{{ product.name }}">
-         
         </div>
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ product.name }}</h5>
-         
-          <p class="card-text flex-grow-1">{{ product.description }}</p>
+          <a [routerLink]="['/product-detail', product.id]" [state]="{ data: product }">
+            <h5 class="card-title text-dark">{{ product.name }}</h5>
+          </a>
+          <p class="card-text flex-grow-1 text-secondary">{{ product.description }}</p>
           <div class="d-flex justify-content-between align-items-center mt-3">
-            <span class="h5 mb-0 text-primary">{{ product.price }} Dhs</span>
-            <button type="button" (click)="addToCart(product)" class="btn btn-outline-primary">
+            <span class="h5 mb-0 text-orange">{{ product.price }} Dhs</span>
+            <button type="button" (click)="addToCart(product)" class="btn btn-outline-orange">
               <i class="fas fa-cart-plus"></i> Add to cart
             </button>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
+
 <style>
-  .card.h-100.shadow-sm.border-0.transition-hover {
-  transition: 0.9s ease;
+/* Custom color variables */
+:root {
+  --orange-primary: #FF6B00;
+  --orange-hover: #FF8533;
+  --black-primary: #1A1A1A;
 }
 
-.card.h-100.shadow-sm.border-0.transition-hover:hover {
-  transform: scale(1.1);
+/* Card hover effect */
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Orange buttons */
+.btn-orange {
+  background-color: var(--orange-primary);
+  color: white;
+  border: none;
+}
+
+.btn-orange:hover {
+  background-color: var(--orange-hover);
+  color: white;
+}
+
+.btn-outline-orange {
+  color: var(--orange-primary);
+  border-color: var(--orange-primary);
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-orange:hover {
+  color: white;
+  background-color: var(--orange-primary);
+  border-color: var(--orange-primary);
+}
+
+/* Text colors */
+.text-orange {
+  color: var(--orange-primary);
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-title {
+  color: var(--black-primary);
+  font-weight: 600;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Search input styling */
+.form-control:focus {
+  border-color: var(--orange-primary);
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.25);
+}
+
+/* Custom shadow */
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+/* Animation duration adjustment */
+.transition-hover {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .card-img-top {
+    height: 180px;
+  }
 }
 </style>

@@ -17,6 +17,9 @@ export class ProductService {
   getProducts(): Observable<any> {
     return this.http.get(`${this.apiUrl}/products`);
   }
+  getProduct(id:number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/product-details/${id}`);
+  }
   saveProduct(data:any ):Observable<any>{
     const token = localStorage.getItem('token'); 
     const headers = new HttpHeaders({

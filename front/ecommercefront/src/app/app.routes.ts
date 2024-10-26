@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
-import { DashbordComponent } from './dashbord/dashbord.component';
+
 import { Component } from '@angular/core';
 import { CommandeComponent } from './commande/commande.component';
 import { AddComponent } from './add/add.component';
@@ -13,6 +13,7 @@ import { ProductlisstComponent } from './productlisst/productlisst.component';
 import { EditComponent } from './edit/edit.component';
 import { CommandelistComponent } from './commandelist/commandelist.component';
 import { CommandeDetailsComponent } from './commande-details/commande-details.component';
+import { ProductdetailComponent } from './productdetail/productdetail.component';
 
 
 export const routes: Routes = [
@@ -24,10 +25,7 @@ export const routes: Routes = [
         path:'',
         component:HomepageComponent
     },
-    {
-        path:'dashboard',
-        component:DashbordComponent
-    },
+    
     {
         path:'login' , 
         component:LoginComponent
@@ -65,7 +63,12 @@ export const routes: Routes = [
         // it depends on the id 
         path:'commande-details/:id',
         component:CommandeDetailsComponent
-    }
+    },
+    {
+        // it depends on the id 
+        path:'product-detail/:product',
+        component:ProductdetailComponent
+    },
     
     
     
