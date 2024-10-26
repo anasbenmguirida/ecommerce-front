@@ -66,7 +66,7 @@ export const routes: Routes = [
     },
     {
         // it depends on the id 
-        path:'product-detail/:product',
+        path:'product-detail/:id',
         component:ProductdetailComponent
     },
     

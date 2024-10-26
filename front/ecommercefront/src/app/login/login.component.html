@@ -6,52 +6,83 @@
     <title>Moul Tech Admin Login</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-      body {
-  background-color: #f8f9fa;
-}
-.login-container {
-padding-bottom: 30px;
-  min-height: 100vh;
-
-}
-.card {
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-.card-header {
-  background-color: #07090a;
-  color: #fd7e14;
-  border-radius: 15px 15px 0 0 !important;
-  padding: 20px;
-}
-.btn-login {
-  background-color: #fd7e14;
-  border-color: #fd7e14;
-  color: #fff;
-}
-.btn-login:hover {
-  background-color: #e76b00;
-  border-color: #e76b00;
-}
-.form-control:focus {
-  border-color: #fd7e14;
-  box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.25);
-}
+        body {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 30px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+        }
+        .card {
+            background-color: #212529;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .card-header {
+            background-color: #fd7e14;
+            color: #ffffff;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            padding: 20px;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+        .btn-login {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+            color: #ffffff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-login:hover {
+            background-color: #e76b00;
+            border-color: #e76b00;
+        }
+        .form-control {
+            background-color: #060707;
+            color: #ffffff;
+            border: 1px solid #6c757d;
+            border-radius: 8px;
+        }
+        .form-control:focus {
+            background-color: #495057;
+            border-color: #fd7e14;
+            box-shadow: 0 0 0 0.25rem rgba(253, 126, 20, 0.3);
+        }
+        .form-label {
+            color: #adb5bd;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: url('https://www.transparenttextures.com/patterns/45-degree-fabric-light.png');
+            opacity: 0.1;
+        }
     </style>
 </head>
 <body>
-  <app-header/>
-    <div class="login-container d-flex align-items-center justify-content-center">
-        <div class="container">
+    <app-header></app-header>
+    <div class="login-container">
+        <div class="overlay"></div>
+        <div class="container position-relative">
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-5">
                     <div class="card">
-                        <div class="card-header text-center">
-                            <h2 class="fw-bold mb-0">Moul Tech</h2>
+                        <div class="card-header">
+                            <h2 class="fw-bold mb-0">Tech Store</h2>
                             <p class="mb-0">Admin Login</p>
                         </div>
-                        <div class="card-body p-5">
+                        <div class="card-body">
                             <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
                                 <div class="mb-4">
                                     <label for="username" class="form-label">Email</label>
