@@ -49,9 +49,7 @@ export class ProduitComponent implements OnInit{
        
       });
     });
-    this.cartservice.itemsSubject.subscribe((items: any[]) => {
-      this.numberOfProducts = items.length;
-    });
+    
   }
 
  

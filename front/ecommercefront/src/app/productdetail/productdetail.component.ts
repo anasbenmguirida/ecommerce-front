@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { HeaderComponent } from '../header/header.component';
 import { RouterLink , RouterModule , RouterLinkActive } from '@angular/router';
 import { CartService } from '../cart.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-productdetail',
   standalone: true,
@@ -13,7 +14,7 @@ import { CartService } from '../cart.service';
 })
 export class ProductdetailComponent implements OnInit {
   
-  constructor(private router:Router , private route:ActivatedRoute ,private cartService:CartService, private productService:ProductService){}
+  constructor(private router:Router ,private toaster:ToastrService ,private route:ActivatedRoute ,private cartService:CartService, private productService:ProductService){}
   product:any ;
   id:any ;  
   ngOnInit(): void {
@@ -43,7 +44,8 @@ export class ProductdetailComponent implements OnInit {
   this.router.navigate(['/produits']) ; 
  }
  addToCart(produit:any){
-  this.cartService.addToCart(produit)
+  this.cartService.addToCart(produit) ; 
+  this.toaster.success("Product Added Succesfully ") ; 
  }
 }
 

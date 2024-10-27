@@ -23,9 +23,10 @@ export class userServive{
       return this.http.post(`${this.apiUrl}/login` , data)
     }
   
-    sendEmail(recipient:any):Observable<any>{
-      return this.http.post(`${this.apiUrl}/send-email`,  recipient ,{...this.options , responseType:'text'});
-   }
+    sendEmail(recipient: string): Observable<any> {
+      let params = new HttpParams().set('email', recipient);
+      return this.http.post(`${this.apiUrl}/send-email`, null, {...this.options, params: params, responseType: 'text' });
+    }
    getUser(id:number):Observable<any>{
     return this.http.get(`${this.apiUrl}/user-info/${id}`);
    }

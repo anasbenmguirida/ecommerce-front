@@ -17,13 +17,12 @@ export class CartComponent {
   numberOfProducts:number=0 ; 
   constructor(public cartservice:CartService , private router:Router , private toaster:ToastrService){}
   ngOnInit(): void {
-    this.cartservice.itemsSubject.subscribe((items: any[]) => {
-      this.numberOfProducts = items.length;
-    });
+    
   }
 deleteitem(item:any){
   this.cartservice.deleteitem(item);
-  this.toaster.warning("This item id deleted of you cart !")
+  this.toaster.warning("This item is deleted of you cart !")
+  this.ngOnInit() ; 
  
 }
 incrementquantity(id:number){

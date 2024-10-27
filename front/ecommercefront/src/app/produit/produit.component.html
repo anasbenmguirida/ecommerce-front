@@ -91,9 +91,16 @@
 }
 
 .card-img-top {
-  height: 200px;
+  height: 190px; /* Reduce height slightly to create more space */
+  width: 100%; /* Ensures the image fills the card width */
   object-fit: cover;
+  object-position: center;
+  transform: scale(0.95); /* Slightly smaller scale */
+  transition: transform 0.3s ease, height 0.3s ease;
 }
+
+
+
 
 /* Search input styling */
 .form-control:focus {

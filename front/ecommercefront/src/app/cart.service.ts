@@ -5,16 +5,23 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
   public items:any[] = JSON.parse(localStorage.getItem("cartItem") || '[]' ); 
-  public itemsSubject = new BehaviorSubject<any[]>(this.items);constructor() { }
+  private numberOfProducts = 0;
+  private productsSubject = new BehaviorSubject<number>(this.numberOfProducts);
 
-  getNumberofproducts():number{
-    return this.itemsSubject.value.length;
+  getNumberofproducts(): number {
+    return this.numberOfProducts;
   }
+
+  getProductsObservable() {
+    return this.productsSubject.asObservable();
+  }
+
 
   addToCart(produit:any ):void {
     this.items.push({ ...produit , quantity :1});
-    this.itemsSubject.next(this.items);
     localStorage.setItem("cartItem", JSON.stringify(this.items));
+    this.numberOfProducts++ ; 
+    this.productsSubject.next(this.numberOfProducts);
   }
   
   getItems():any[]{
@@ -23,9 +30,9 @@ export class CartService {
  
   deleteitem(item:any){
     this.items.splice(this.items.indexOf(item),1);
-    this.itemsSubject.next(this.items);
     localStorage.setItem("cartItem", JSON.stringify(this.items));
-   
+   this.numberOfProducts-- ; 
+   this.productsSubject.next(this.numberOfProducts);
 }
 incrementquantity(id:number){
   this.items.map((item:any)=>{
@@ -33,7 +40,6 @@ incrementquantity(id:number){
       item.quantity++;
       }
       }) ; 
-      this.itemsSubject.next(this.items);
       localStorage.setItem("cartItem", JSON.stringify(this.items));
 }
 decrementquantity(id:number){
@@ -42,7 +48,6 @@ decrementquantity(id:number){
       item.quantity--;
       }
 });
-this.itemsSubject.next(this.items);
 localStorage.setItem("cartItem", JSON.stringify(this.items));
   
 }

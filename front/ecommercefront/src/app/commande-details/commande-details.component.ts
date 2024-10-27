@@ -35,13 +35,19 @@ ngOnInit(){
     this.userService.getUser(this.userId).subscribe(
       (data:any)=>{
         this.user=data ; 
-        console.log("my user : "  , data)
+        console.log("my user : "  , this.user.email)
+        
       });
 }
 approveCommande(id:number){
   return this.commandeService.approveCommande(id).subscribe(
     (data:any)=>{
       console.log(data);
+      this.userService.sendEmail(this.user.email).subscribe(
+        (data)=>console.log(data)  ,
+        (error)=>console.log(error) ,
+        
+      )
       this.toaster.success("this Commande is confimed now and a verification email is sent succesfully !") 
  }) ;
  
